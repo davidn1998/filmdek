@@ -1,7 +1,7 @@
 type Props = {};
 
-const collection = (props: Props) => {
+const Collection = (props: Props) => {
   return <div>collection</div>;
 };
 
-export default collection;
+export default Collection;
