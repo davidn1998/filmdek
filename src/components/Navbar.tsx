@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { NavLink } from "./NavLink";
 
 type NavLink = {
@@ -12,13 +13,13 @@ export const NavBar = ({}) => {
   ];
 
   return (
-    <nav className="m-8 flex h-12 items-center justify-between text-2xl">
+    <nav className="z-20 m-8 flex h-12 items-center justify-between text-2xl">
       <ul className="flex list-none items-center justify-center">
         {navLinks.map((navLink, i) => (
           <NavLink key={i} label={navLink.label} path={navLink.path} />
         ))}
       </ul>
-      <h1>FILMDEK</h1>
+      <Image src="/logo.png" alt="logo" width={250} height={25} />
     </nav>
   );
 };

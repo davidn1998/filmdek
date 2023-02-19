@@ -28,24 +28,9 @@ export const Layout = ({ children }: Props) => {
     },
   };
 
-  const scanVariants = {
-    out: {
-      scaleY: 0,
-      transition: {
-        duration: 0.25,
-        ease: "easeInOut",
-      },
-    },
-    in: {
-      scaleY: 1,
-      transition: {
-        duration: 0.75,
-      },
-    },
-  };
   return (
     <div
-      className={`flex min-h-screen flex-col ${vt323.className} border-x-[32px] border-y-[32px] border-black bg-black text-white`}
+      className={`flex min-h-screen flex-col ${vt323.className} border-black bg-black text-white md:border-[32px]`}
     >
       <AnimatePresence mode="wait" initial={true}>
         <motion.div
@@ -54,25 +39,25 @@ export const Layout = ({ children }: Props) => {
           initial="out"
           animate="in"
           exit="out"
-          className="relative flex h-full flex-1 flex-col overflow-hidden rounded-2xl bg-primary"
+          className="relative flex h-full flex-1 flex-col overflow-hidden bg-primary md:rounded-2xl"
         >
-          <div className="absolute h-full w-full overflow-hidden">
+          <div className="absolute z-10 h-full w-full overflow-hidden">
             <motion.div
-              animate={{ translateY: "1300px" }}
+              animate={{ translateY: "2000px" }}
               transition={{
                 from: "-100px",
-                delay: 0,
+                delay: 10,
                 repeatDelay: 10,
                 repeat: Infinity,
                 duration: 2,
                 type: "tween",
               }}
-              className="z-40 h-20 w-full bg-neutral-200 opacity-50"
+              className="h-20 w-full bg-neutral-200 opacity-50"
             ></motion.div>
           </div>
           <Meta />
           <NavBar />
-          <main className="container mx-auto mt-16 flex flex-1 flex-col px-8 lg:max-w-5xl">
+          <main className="container mx-auto flex flex-1 flex-col px-8 lg:max-w-5xl">
             {children}
           </main>
           <TimeStamp />
