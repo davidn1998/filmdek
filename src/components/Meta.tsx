@@ -20,7 +20,7 @@ export const Meta = ({ title, keywords, description }: Props) => {
 };
 
 Meta.defaultProps = {
-  title: "filmdek",
+  title: "Filmdek",
   keywords:
     "filmdek, movie, movies, film, films, tcg, ccg, card, game, collectable",
   description: "Generate collectable movie cards.",
