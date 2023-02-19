@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 
 const linkDecoration = cva(
-  "absolute top-10 left-0 h-[2px] w-full bg-neutral-900 dark:bg-white transition-all duration-300 ease-in-out content-[''] group-hover:scale-x-100",
+  "absolute top-10 left-0 h-[2px] w-full bg-white transition-all duration-300 ease-in-out content-[''] group-hover:scale-x-100",
   {
     variants: {
       active: {

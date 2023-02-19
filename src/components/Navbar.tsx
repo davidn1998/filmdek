@@ -1,5 +1,4 @@
 import { NavLink } from "./NavLink";
-import { ThemeToggler } from "./ThemeToggler";
 
 type NavLink = {
   label: string;
@@ -13,13 +12,13 @@ export const NavBar = ({}) => {
   ];
 
   return (
-    <nav className="mb-16 flex h-12 items-center justify-between p-2.5 pt-8">
+    <nav className="m-8 flex h-12 items-center justify-between text-2xl">
       <ul className="flex list-none items-center justify-center">
         {navLinks.map((navLink, i) => (
           <NavLink key={i} label={navLink.label} path={navLink.path} />
         ))}
       </ul>
-      <ThemeToggler />
+      <h1>FILMDEK</h1>
     </nav>
   );
 };

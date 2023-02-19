@@ -1,7 +1,6 @@
 import { Layout } from "@/components/Layout";
 import "@/styles/globals.css";
 import "@/styles/nprogress.css";
-import { ThemeProvider } from "next-themes";
 import type { AppProps } from "next/app";
 import Router from "next/router";
 import NProgress from "nprogress";
@@ -15,10 +14,8 @@ NProgress.configure({ showSpinner: false });
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider enableSystem={true} attribute="class">
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   );
 }
