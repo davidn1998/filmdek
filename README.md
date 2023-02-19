@@ -1,4 +1,4 @@
-An application that allows you to generate collectable movie cards. [Next.js](https://nextjs.org/)
+An application created with [Next.js](https://nextjs.org/) that allows you to generate collectable movie cards. 
 
 ## Getting Started
 
