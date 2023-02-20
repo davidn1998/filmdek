@@ -1,21 +1,7 @@
+import { months } from "@/utility/months";
 import { useEffect, useState } from "react";
 
 type Props = {};
-
-const months = [
-  "JAN",
-  "FEB",
-  "MAR",
-  "APR",
-  "MAY",
-  "JUN",
-  "JUL",
-  "AUG",
-  "SEP",
-  "OCT",
-  "NOV",
-  "DEC",
-];
 
 const formatAMPM = (date: Date) => {
   let hours = date.getHours();

@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import { months } from "@/utility/months";
 import { useGetMovieData } from "@/utility/useRequest";
 import Tilt from "react-parallax-tilt";
 
@@ -17,6 +18,15 @@ export const Card = ({ movieId }: Props) => {
       </h2>
     );
   }
+
+  const getDate = (dateStr: string): string => {
+    const dateData = dateStr.split("-");
+    const year = dateData[0];
+    const month = months[+dateData[1] - 1];
+    const day = dateData[2];
+
+    return `${month} ${day} ${year}`;
+  };
 
   if (!movieData) {
     return <></>;
@@ -43,19 +53,23 @@ export const Card = ({ movieId }: Props) => {
           </div>
           <img
             src={`https://image.tmdb.org/t/p/original${movieData.poster_path}`}
-            alt={movieData.title}
+            alt={movieData.title || "movie poster"}
             draggable={"false"}
             className="w-full border-2"
           />
           <div className="absolute bottom-0 left-0 flex w-full flex-col bg-white bg-opacity-20 p-4 text-center">
             <p>{movieData.tagline && '"' + movieData.tagline + '"'}</p>
             <div className="mt-4 flex justify-around tracking-widest text-white">
-              <p className="mr-1 rounded-md bg-neutral-500 p-1">
-                SCORE: {Math.round(movieData.popularity)}
-              </p>
-              <p className="rounded-md bg-neutral-500 p-1">
-                {movieData.release_date}
-              </p>
+              {movieData.popularity && (
+                <p className="mr-1 rounded-md bg-neutral-500 p-1">
+                  SCORE: {Math.round(movieData.popularity)}
+                </p>
+              )}
+              {movieData.release_date && (
+                <p className="rounded-md bg-neutral-500 p-1">
+                  {getDate(movieData.release_date)}
+                </p>
+              )}
             </div>
           </div>
         </div>
