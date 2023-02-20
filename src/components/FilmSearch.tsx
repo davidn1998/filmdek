@@ -27,7 +27,7 @@ export const FilmSearch = ({ setMovieId }: Props) => {
   };
 
   return (
-    <div className="mt-8 flex flex-col md:mt-0 md:w-1/3">
+    <div className="mt-8 flex flex-col md:mt-0 md:w-1/2">
       <form
         onSubmit={handleSubmit(onSubmit)}
         className="flex text-xl text-white"
@@ -36,9 +36,9 @@ export const FilmSearch = ({ setMovieId }: Props) => {
           {...register("movieName")}
           type="text"
           placeholder="Enter Movie Name"
-          className="flex border-2 bg-neutral-900 p-2"
+          className="flex w-full border-2 bg-neutral-900 p-2"
         />
-        <button className="w-full border-2 bg-purple-500 p-2 transition-all duration-300 hover:bg-purple-700">
+        <button className=" w-full border-2 bg-purple-500 p-2 transition-all duration-300 hover:bg-purple-700">
           Search
         </button>
       </form>

@@ -2,9 +2,7 @@ import { Card } from "@/components/Card";
 import { FilmSearch } from "@/components/FilmSearch";
 import { useState } from "react";
 
-type Props = {};
-
-const Index = (props: Props) => {
+const Index = () => {
   const [movieId, setMovieId] = useState<number>();
 
   return (

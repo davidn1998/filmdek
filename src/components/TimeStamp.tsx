@@ -45,7 +45,7 @@ const TimeStamp = (props: Props) => {
   });
 
   return (
-    <div className="m-8 flex flex-col items-end text-xl">
+    <div className="m-8 flex flex-col items-end">
       <h1>
         {date
           ? months[date.getMonth()] +

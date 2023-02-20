@@ -1,23 +1,25 @@
-import { cva, VariantProps } from "cva";
+import { motion } from "framer-motion";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const linkDecoration = cva(
-  "absolute top-10 left-0 h-[2px] w-full bg-white transition-all duration-300 ease-in-out content-[''] group-hover:scale-x-100",
-  {
-    variants: {
-      active: {
-        true: "scale-x-1",
-        false: "scale-x-0",
-      },
+const variants = {
+  open: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      y: { stiffness: 1000, velocity: -100 },
     },
-    defaultVariants: {
-      active: false,
+  },
+  closed: {
+    y: 50,
+    opacity: 0,
+    transition: {
+      y: { stiffness: 1000 },
     },
-  }
-);
+  },
+};
 
-interface Props extends VariantProps<typeof linkDecoration> {
+interface Props {
   label: string;
   path: string;
 }
@@ -26,14 +28,31 @@ export const NavLink = ({ label, path }: Props) => {
   const router = useRouter();
 
   return (
-    <li className="mx-4 flex flex-1 justify-center transition-all hover:cursor-pointer">
+    <motion.li
+      variants={variants}
+      whileHover={{ scale: 1.2 }}
+      whileTap={{ scale: 0.8 }}
+      className="mx-4 mb-8 flex justify-center text-3xl tracking-widest transition-all hover:cursor-pointer md:mb-0"
+    >
       <Link href={path} scroll={false} className="group relative">
+        <div
+          id="glitchBefore"
+          className={`${
+            router.asPath === path ? "block" : "hidden"
+          } absolute top-[45%] left-[45%] -z-10 -translate-x-1/2 -translate-y-1/2 text-glitchCol1 opacity-60 group-hover:block`}
+        >
+          {label}
+        </div>
         {label}
-        <span
-          className={linkDecoration({ active: router.asPath === path })}
-        ></span>
-        <p></p>
+        <div
+          id="glitchAfter"
+          className={`${
+            router.asPath === path ? "block" : "hidden"
+          } absolute top-[55%] left-[55%] -z-10 -translate-x-1/2 -translate-y-1/2 text-glitchCol2 opacity-60 group-hover:block`}
+        >
+          {label}
+        </div>
       </Link>
-    </li>
+    </motion.li>
   );
 };

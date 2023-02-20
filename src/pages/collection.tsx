@@ -1,6 +1,4 @@
-type Props = {};
-
-const Collection = (props: Props) => {
+const Collection = () => {
   return <div className="text-xl">Collection Feature Coming Soon 📺</div>;
 };
 

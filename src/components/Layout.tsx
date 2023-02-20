@@ -1,7 +1,7 @@
 import { vt323 } from "@/fonts";
 import { AnimatePresence, motion } from "framer-motion";
 import { useRouter } from "next/router";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { Meta } from "./Meta";
 import { NavBar } from "./Navbar";
 import TimeStamp from "./TimeStamp";
@@ -11,6 +11,7 @@ type Props = {
 };
 
 export const Layout = ({ children }: Props) => {
+  const [contentHidden, setContentHidden] = useState(false);
   const { asPath } = useRouter();
   const transitionVariants = {
     out: {
@@ -56,11 +57,22 @@ export const Layout = ({ children }: Props) => {
             ></motion.div>
           </div>
           <Meta />
-          <NavBar />
-          <main className="container mx-auto flex flex-1 flex-col px-8 lg:max-w-5xl">
+          <NavBar setContentHidden={setContentHidden} />
+          <main
+            className={`${
+              contentHidden ? "hidden" : "flex"
+            } container mx-auto flex-1 flex-col px-8 lg:max-w-5xl`}
+          >
             {children}
           </main>
-          <TimeStamp />
+          <div
+            className={`${
+              contentHidden ? "hidden" : "flex"
+            } text-md items-end justify-between md:text-xl`}
+          >
+            <p className="m-8 tracking-widest">David Nwachukwu &copy; 2023</p>
+            <TimeStamp />
+          </div>
         </motion.div>
       </AnimatePresence>
     </div>
