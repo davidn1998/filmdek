@@ -25,10 +25,13 @@ export const Card = ({ movieId }: Props) => {
 
   return (
     <Tilt
-      className="mx-0 mt-16 rounded-2xl lg:mx-24 lg:mt-0"
+      className="group relative mx-0 mt-16 rounded-2xl lg:mx-24 lg:mt-0"
       scale={1.2}
       glareEnable={false}
     >
+      <div className="absolute left-0 right-0 top-0 bottom-0 z-50 overflow-hidden rounded-2xl">
+        <div className="absolute top-0 left-0 h-full w-20 translate-x-[1000%] skew-x-[45deg] bg-opacity-50 bg-gradient-to-r from-transparent via-[rgba(255,255,255,0.5)] to-transparent duration-700 group-hover:-translate-x-[600%]"></div>
+      </div>
       <div className="flex flex-col rounded-2xl bg-neutral-900 p-4 shadow-[0px_0px_40px_20px_rgba(0,0,0,0.3)]">
         <div className="relative">
           <div className="mb-4 flex items-end justify-between">
