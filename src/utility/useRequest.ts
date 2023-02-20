@@ -1,4 +1,4 @@
-import { IMovie } from "@/types";
+import { IMovie, ISearch } from "@/types";
 import axios from "axios";
 import useSWR from "swr";
 
@@ -22,7 +22,7 @@ export const useGetMovieSearch = (
   searchQuery: string | undefined,
   pageNum: number,
   year?: number | undefined
-) => {
+): { searchData: ISearch; searchError: any } => {
   const url = searchQuery
     ? `https://api.themoviedb.org/3/search/movie?api_key=171dbbdf31276d0a3c4a41f542b9717c&query=${searchQuery}&page=${pageNum}&include_adult=false${
         year ? "&year=" + year : ""

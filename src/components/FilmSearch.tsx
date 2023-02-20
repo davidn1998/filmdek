@@ -43,7 +43,7 @@ export const FilmSearch = ({ setMovieId }: Props) => {
         </button>
       </form>
       <ul className="h-48 overflow-scroll border-2">
-        {searchData?.results?.map((movie: ISearchRes, i: number) => (
+        {searchData?.results?.map((movie, i) => (
           <li
             key={i}
             onClick={(e) => setSelectedMovie(movie)}
