@@ -1,5 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-import { months } from "@/utility/months";
+import { formatDate } from "@/utility/dateUtil";
 import { useGetMovieData } from "@/utility/useRequest";
 import Tilt from "react-parallax-tilt";
 
@@ -18,15 +18,6 @@ export const Card = ({ movieId }: Props) => {
       </h2>
     );
   }
-
-  const getDate = (dateStr: string): string => {
-    const dateData = dateStr.split("-");
-    const year = dateData[0];
-    const month = months[+dateData[1] - 1];
-    const day = dateData[2];
-
-    return `${month} ${day} ${year}`;
-  };
 
   if (!movieData) {
     return <></>;
@@ -67,7 +58,7 @@ export const Card = ({ movieId }: Props) => {
               )}
               {movieData.release_date && (
                 <p className="rounded-md bg-neutral-500 p-1">
-                  {getDate(movieData.release_date)}
+                  {formatDate(movieData.release_date)}
                 </p>
               )}
             </div>

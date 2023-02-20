@@ -1,4 +1,5 @@
 import { ISearchRes } from "@/types";
+import { formatDate } from "@/utility/dateUtil";
 import { useGetMovieSearch } from "@/utility/useRequest";
 import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -65,7 +66,11 @@ export const FilmSearch = ({ setMovieId }: Props) => {
             </div>
             <div className="flex">
               <h4 className="mr-1 text-neutral-400">Release Date: </h4>
-              <p>{selectedMovie?.release_date}</p>
+              <p>
+                {selectedMovie?.release_date
+                  ? formatDate(selectedMovie.release_date)
+                  : ""}
+              </p>
             </div>
             <div className="flex flex-col">
               <h4 className="mr-1 text-neutral-400">Overview: </h4>
@@ -79,7 +84,7 @@ export const FilmSearch = ({ setMovieId }: Props) => {
             >
               View Card
             </button>
-            <p>Hover over card to inspect</p>
+            <p className="font-bold">Hover over card to inspect</p>
           </div>
         )}
       </div>

@@ -44,7 +44,7 @@ export const Layout = ({ children }: Props) => {
         >
           <div className="absolute h-full w-full overflow-hidden">
             <motion.div
-              animate={{ translateY: "2000px" }}
+              animate={{ translateY: "2500px" }}
               transition={{
                 from: "-100px",
                 delay: 10,
