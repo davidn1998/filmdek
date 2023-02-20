@@ -34,7 +34,7 @@ export const Card = ({ movieId }: Props) => {
 
   return (
     <Tilt
-      className="mx-0 mt-16 rounded-2xl md:mx-24 md:mt-0 md:w-1/2"
+      className="mx-0 mt-16 rounded-2xl lg:mx-24 lg:mt-0"
       scale={1.2}
       glareEnable={false}
     >
