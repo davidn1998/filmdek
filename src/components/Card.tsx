@@ -31,9 +31,11 @@ export const Card = ({ movieId }: Props) => {
       <div className="flex flex-col rounded-2xl bg-neutral-900 p-4 shadow-[0px_0px_40px_20px_rgba(0,0,0,0.3)]">
         <div className="relative">
           <div className="mb-4 flex items-end justify-between">
-            <h1 className="mr-4 rounded-br-3xl rounded-tr-lg border-2 bg-neutral-500 p-2 text-3xl">
-              {movieData.genres[0]?.name?.toUpperCase()}
-            </h1>
+            {movieData.genres[0] && (
+              <h1 className="mr-4 rounded-br-3xl rounded-tr-lg border-2 bg-neutral-500 p-2 text-3xl">
+                {movieData.genres[0].name?.toUpperCase()}
+              </h1>
+            )}
             <div className="flex items-end">
               <p className="mr-1 text-2xl">RUNTIME</p>
               <p className="text-6xl">{movieData.runtime}</p>
