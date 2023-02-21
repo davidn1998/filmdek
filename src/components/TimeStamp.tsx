@@ -1,4 +1,4 @@
-import { months } from "@/utility/dateUtil";
+import { months } from "@/util/dateUtil";
 import { useEffect, useState } from "react";
 
 type Props = {};

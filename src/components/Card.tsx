@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
-import { formatDate } from "@/utility/dateUtil";
-import { useGetMovieData } from "@/utility/useRequest";
+import { formatDate } from "@/util/dateUtil";
+import { useGetMovieData } from "@/util/useRequest";
 import Tilt from "react-parallax-tilt";
 
 type Props = {

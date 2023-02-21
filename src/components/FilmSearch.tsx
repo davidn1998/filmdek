@@ -1,6 +1,6 @@
 import { ISearchRes } from "@/types";
-import { formatDate } from "@/utility/dateUtil";
-import { useGetMovieSearch } from "@/utility/useRequest";
+import { formatDate } from "@/util/dateUtil";
+import { useGetMovieSearch } from "@/util/useRequest";
 import { Dispatch, SetStateAction, useState } from "react";
 import { useForm } from "react-hook-form";
 
